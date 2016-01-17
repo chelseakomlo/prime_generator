@@ -1,5 +1,4 @@
 from nose.tools import *
-
 from gen_primes import *
 
 class TestPrimeGeneration():
@@ -60,3 +59,18 @@ class TestPrimeGeneration():
 		expected_result = [2, 3]
 		result = convert(primes)
 		assert_equals(result, expected_result)
+
+	def test_gen_primes(self):
+		n = 3
+		expected_result = [2, 3]
+		result = gen_primes(n)
+		assert(2 in result)
+		assert(3 in result)
+
+		n = 5
+		result = gen_primes(n)
+		assert(5 in result)
+
+		n = 10
+		result = gen_primes(n)
+		assert(7 in result)

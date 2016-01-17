@@ -36,18 +36,16 @@ def convert(primes):
 	return result
 
 def gen_primes(n):
-	while n < (2**20):
-		possible_primes = gen_bool_list(n)
+	if n < (2**20):
+		possible_primes = gen_possible_primes(n)
+
 		i = 2
-
-		while (i**2) < n: 
-			# find the next prime
-			next_prime = next_prime(i)
-			
-			# for all multiples of i to n, mark them as non-prime (composite)
-			possible_primes = mark_composite(next_prime, possibe_primes)
-
-			# this means, in our possible_primes list, we will set the boolean to 0 (false)
+		possible_primes = mark_composite(i, possible_primes)
+		
+		while (i**2) <= n: 
+			prime = next_prime(i)
+			possible_primes = mark_composite(prime, possible_primes)
 			i = i + 1
+		primes = convert(possible_primes)
 		return primes
 
