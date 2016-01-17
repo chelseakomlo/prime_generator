@@ -6,12 +6,12 @@ class TestPrimeGeneration():
 
 	def test_gen_possible_primes(self):
 		n = 2
-		expected_result = [1, 1]
+		expected_result = [1]
 		result = gen_possible_primes(n)
 		assert_equals(result, expected_result)
 
 		n = 4
-		expected_result = [1, 1, 1, 1]
+		expected_result = [1, 1, 1]
 		result = gen_possible_primes(n)
 		assert_equals(result, expected_result)
 
@@ -37,26 +37,26 @@ class TestPrimeGeneration():
 		assert_true(result)
 
 	def test_mark_composite(self):
-		possible_primes = [1, 1, 1, 1]
+		possible_primes = [1, 1, 1]
 		prime = 2
-		expected_result = [1, 1, 1, 0]
+		expected_result = [1, 1, 0]
 		result = mark_composite(prime, possible_primes)
 		assert_equals(result, expected_result)
 
-		possible_primes = [1, 1, 1, 1, 1, 1]
+		possible_primes = [1, 1, 1, 1, 1]
 		prime = 2
-		expected_result = [1, 1, 1, 0, 1, 0]
+		expected_result = [1, 1, 0, 1, 0]
 		result = mark_composite(prime, possible_primes)
 		assert_equals(result, expected_result)
 
-		possible_primes = [1, 1, 1, 1, 1, 1, 1, 1, 1]
+		possible_primes = [1, 1, 1, 1, 1, 1, 1, 1]
 		prime = 3
-		expected_result = [1, 1, 1, 1, 1, 0, 1, 1, 0]
+		expected_result = [1, 1, 1, 1, 0, 1, 1, 0]
 		result = mark_composite(prime, possible_primes)
 		assert_equals(result, expected_result)
 
 	def test_convert(self):
-		primes = [1, 1, 1, 0]
-		expected_result = [1, 2, 3]
+		primes = [1, 1, 0]
+		expected_result = [2, 3]
 		result = convert(primes)
 		assert_equals(result, expected_result)
